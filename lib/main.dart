@@ -27,6 +27,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             ImplicitAnimation(),
             TweenAnimation(),
+            ExplicitAnimation(),
           ],
         ),
       ),
@@ -96,6 +97,74 @@ class _TweenAnimationState extends State<TweenAnimation> {
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+class ExplicitAnimation extends StatefulWidget {
+  @override
+  _ExplicitAnimationState createState() => _ExplicitAnimationState();
+}
+
+class _ExplicitAnimationState extends State<ExplicitAnimation>
+    with TickerProviderStateMixin {
+  AnimationController _animationController;
+  AnimationController _iconController;
+  bool _isRotating = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 3),
+    );
+    _iconController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 500),
+    );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    _iconController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          RotationTransition(
+            turns: _animationController,
+            child: Container(
+              padding: const EdgeInsets.all(16.0),
+              child: FlutterLogo(
+                size: 100,
+              ),
+            ),
+          ),
+          IconButton(
+              iconSize: 36.0,
+              icon: AnimatedIcon(
+                icon: AnimatedIcons.play_pause,
+                progress: _iconController,
+              ),
+              onPressed: (){
+                if(_isRotating){
+                  _animationController.stop();
+                  _iconController.reverse();
+                } else {
+                  _animationController.repeat();
+                  _iconController.forward();
+                }
+                _isRotating = !_isRotating;
+              }),
+        ],
       ),
     );
   }
