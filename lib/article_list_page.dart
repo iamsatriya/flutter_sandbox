@@ -1,13 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_sandbox/article.dart';
-import 'package:flutter_sandbox/detail_page.dart';
 import 'package:flutter_sandbox/widgets/platform_widget.dart';
 
+import 'article.dart';
+import 'detail_page.dart';
 
-class NewsListPage extends StatelessWidget {
-  static const routeName = '/article_list';
-
+class ArticleListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PlatformWidget(
@@ -29,6 +27,7 @@ class NewsListPage extends StatelessWidget {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text('News App'),
+        transitionBetweenRoutes: false,
       ),
       child: _buildList(context),
     );
@@ -70,6 +69,3 @@ class NewsListPage extends StatelessWidget {
     );
   }
 }
-
-
-

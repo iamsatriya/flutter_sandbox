@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sandbox/detail_page.dart';
-import 'package:flutter_sandbox/list_page.dart';
+import 'package:flutter_sandbox/home_page.dart';
 import 'package:flutter_sandbox/styles.dart';
 
 void main() => runApp(MyApp());
@@ -23,6 +23,10 @@ class MyApp extends StatelessWidget {
           ),
           elevation: 0,
         ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          selectedItemColor: secondaryColor,
+          unselectedItemColor: Colors.grey,
+        ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(secondaryColor),
@@ -36,9 +40,9 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: NewsListPage.routeName,
+      initialRoute: HomePage.routeName,
       routes: {
-        NewsListPage.routeName: (context) => NewsListPage(),
+        HomePage.routeName: (context) => HomePage(),
         ArticleDetailPage.routeName: (context) => ArticleDetailPage(
               article: ModalRoute.of(context).settings.arguments,
             ),
