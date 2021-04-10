@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sandbox/detail_page.dart';
-import 'package:flutter_sandbox/home_page.dart';
-import 'package:flutter_sandbox/styles.dart';
+import 'package:flutter_sandbox/ui/article_detail_page.dart';
+import 'package:flutter_sandbox/ui/article_webview.dart';
+import 'package:flutter_sandbox/ui/home_page.dart';
+
+import 'common/styles.dart';
 
 void main() => runApp(MyApp());
 

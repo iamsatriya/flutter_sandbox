@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sandbox/widgets/platform_widget.dart';
 
-import 'article.dart';
-import 'detail_page.dart';
+import '../data/model/article.dart';
+import 'article_detail_page.dart';
 
 class ArticleListPage extends StatelessWidget {
   @override
